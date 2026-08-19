@@ -90,6 +90,8 @@ Reconnaissance activities were performed only against authorized targets provide
 
 ✅ Wafw00f
 
+✅ DNSRecon
+
 ✅ Nmap / Zenmap Host Discovery
 
 ✅ Network Topology Mapping
@@ -136,6 +138,7 @@ Reconnaissance activities were performed only against authorized targets provide
 | cURL | HTTP response header analysis |
 | WhatWeb | Website technology identification |
 | Wafw00f | Web Application Firewall detection |
+| DNSRecon | DNS enumeration |
 | Zenmap | Host Discovery |
 | Nmap | Network Enumeration |
 
@@ -160,6 +163,7 @@ networkwalks-B082-week2-footprinting-reconnaissance
 |   ├── 03-curl.png
 |   ├── 04-whatweb.png
 |   ├── 05-wafw00f.png
+|   └── 06-DNSRecon.png
 └── zenmap
 │       ├── 01-ipconfig.png
 │       ├── 02-host-discovery.png
@@ -186,32 +190,70 @@ Perform authorized reconnaissance against the target domain using multiple Kali 
 # 🔎 Reconnaissance Workflow
 
 ```text
-Target Domain
-      │
-      ▼
-    WHOIS
-      │
-      ▼
-   NSLOOKUP
-      │
-      ▼
-     CURL 
-      │
-      ▼
-   WHATWEB
-      │
-      ▼
-   WAFW00F
-      │
-      ▼
- Documentation
+                          Target
+                             │
+                             ▼
+                  Reconnaissance Phase
+                             │
+                             ▼
+      ┌──────────────────────────────────────┐
+      │              Footprinting            │
+      └──────────────────────────────────────┘
+                             │
+                             ▼
+        WHOIS → NSLOOKUP → DNSRECON
+                             │
+                             ▼
+         WHATWEB → WAFW00F → CURL
+                             │
+                             ▼
+              Information Collection
+                             │
+                             ▼
+      ┌──────────────────────────────────────┐
+      │        Network Scanning Phase        │
+      └──────────────────────────────────────┘
+                             │
+                             ▼
+                   Network Configuration
+                             │
+                             ▼
+                      Host Discovery
+                             │
+                             ▼
+                   Live Host Analysis
+                             │
+                             ▼
+                 Port / Service Discovery
+                             │
+                             ▼
+                    Topology Mapping
+                             │
+                             ▼
+      ┌──────────────────────────────────────┐
+      │          Reporting Phase             │
+      └──────────────────────────────────────┘
+                             │
+                             ▼
+                    Evidence Collection
+                             │
+                             ▼
+                     Results Analysis
+                             │
+                             ▼
+                    Findings Summary
+                             │
+                             ▼
+                  Final Assessment Report
 ```
 
 ---
 
-# 1️⃣ WHOIS Analysis
+# 🔍 Module 1 — Footprinting & Reconnaissance (W2-PM1)
 
-## Purpose
+## 1️⃣ WHOIS Analysis
+
+### Purpose
 
 WHOIS is used to retrieve publicly available domain registration information.
 
@@ -349,8 +391,6 @@ screenshot/04-whatweb.png
 
 ### Findings
 
-						WhatWeb
-                                                                  
 ┌──(root㉿kali)-[/home/kali]<br>
 └─# whatweb networkwalks.com <br>
 http://networkwalks.com [301 Moved Permanently] Apache, Cookies[__wpdm_client], Country[UNITED STATES][US], HTTPServer[Apache], HttpOnly[__wpdm_client], IP[192.232.216.135], RedirectLocation[https://networkwalks.com/], UncommonHeaders[permissions-policy,x-redirect-by,upgrade,referrer-policy,x-endurance-cache-level,x-nginx-cache]<br>
@@ -405,6 +445,45 @@ screenshot/05-wafw00f.png
 
 
 ---
+# 6️⃣ DNSRECON Analysis
+
+## Purpose
+
+DNSRecon performs DNS enumeration and information gathering.
+
+### Command
+
+```bash
+dnsrecon -d networkwalks.com
+```
+
+### Evidence
+
+📸 <img width="1900" height="527" alt="Screenshot 2026-08-20 000304" src="https://github.com/user-attachments/assets/a117db22-b52a-4790-b5b8-5286401d7018" />
+
+
+
+
+```text
+screenshot/06-dnsrecon.png
+```
+
+### Findings
+
+                                                                                              
+┌──(kali㉿kali)-[~]<br>
+└─$ dnsrecon -d networkwalks.com<br>
+2026-08-19T14:09:15.981786-0400 INFO Starting enumeration for domain: networkwalks.com<br>
+2026-08-19T14:09:15.982227-0400 INFO std: Performing General Enumeration against: networkwalks.com...<br>
+2026-08-19T14:09:19.297523-0400 ERROR No answer for DNSSEC query for networkwalks.com<br>
+2026-08-19T14:09:20.829643-0400 INFO     SOA ns6135.hostgator.com 50.87.144.87<br>
+2026-08-19T14:09:31.786771-0400 INFO     A networkwalks.com 192.232.216.135<br>
+2026-08-19T14:09:38.032341-0400 INFO Enumerating SRV Records<br>
+2026-08-19T14:09:48.019864-0400 ERROR No SRV Records Found for networkwalks.com<br>
+2026-08-19T14:09:48.020270-0400 INFO Completed enumeration for domain: networkwalks.com<br>
+
+
+---
 
 # 📊 Reconnaissance Summary
 
@@ -415,6 +494,7 @@ screenshot/05-wafw00f.png
 | cURL | HTTP response headers |
 | WhatWeb | Website technologies |
 | Wafw00f | WAF detection results |
+| DNSRecon | DNS records and enumeration |
 
 
 ---
