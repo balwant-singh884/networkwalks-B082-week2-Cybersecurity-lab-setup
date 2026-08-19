@@ -515,67 +515,199 @@ Through this exercise, I gained hands-on experience with:
 
 ---
 
+
 # 🌐 Module 2 — Network Scanning with Zenmap (W2-PM5)
 
 ## Objective
 
 Identify active hosts, enumerate network information, and visualize network topology using Zenmap.
 
-### Network Configuration
+---
+
+## 1️⃣ Network Configuration & Scope
+
+### Objective
+
+Identify the local IP address and LAN subnet before performing network discovery. This establishes the scanning range for the authorized assessment.
+
+### Command
 
 ```cmd
 ipconfig
 ```
 
+### Evidence
+
 <img src="evidence/zenmap/01-ipconfig.png" width="900">
 
 ---
 
-### Host Discovery
+## 2️⃣ Live Host Discovery
+
+### Objective
+
+Identify active hosts within the authorized LAN subnet using Zenmap's Ping Scan.
+
+### Scan Configuration
+
+- **Target:** Local LAN subnet identified in Task 1
+- **Profile:** Ping Scan
+- **Nmap Scan:** Host Discovery
+
+### Command
 
 ```bash
-nmap -sn <target-range>
+nmap -sn 10.0.0.0/24
 ```
+
+### Evidence
 
 <img src="evidence/zenmap/02-host-discovery.png" width="900">
 
 ---
 
-### Live Hosts
+## 3️⃣ Live Host Count
+
+### Objective
+
+Determine the total number of active hosts identified during the Zenmap host-discovery scan.
+
+### Result
+
+The scan identified **4 live hosts**, including the assessment system.
+
+### Evidence
 
 <img src="evidence/zenmap/03-live-hosts.png" width="900">
 
 ---
 
-### IP Address Enumeration
+## 4️⃣ Live Host IP Addresses
+
+### Objective
+
+Record the IPv4 addresses of the hosts identified as active during the Zenmap discovery scan.
+
+### Results
+
+The following hosts were identified as live:
+
+| Host | IP Address |
+|------|------------|
+| Host 1 | `10.0.0.1` |
+| Host 2 | `10.0.0.4` |
+| Host 3 | `10.0.0.19` |
+| Host 4 | `10.0.0.5` |
+
+### Evidence
 
 <img src="evidence/zenmap/04-ip-addresses.png" width="900">
 
 ---
 
-### MAC Address Enumeration
+## 5️⃣ Live Host MAC Addresses
+
+### Objective
+
+Record the MAC addresses associated with the live hosts identified during the Zenmap discovery scan.
+
+### Results
+
+| Host | MAC Address |
+|------|-------------|
+| Host 1 | `00:50:56:E3:B3:2C` |
+| Host 2 | `00:0C:29:C0:94:8F` |
+| Host 3 | `00:50:56:E9:64:82` |
+| Host 4 | `00:0C:29:40:C0:93` |
+
+The fourth MAC address represents the local assessment system and was obtained using the system's network configuration.
+
+### Evidence
 
 <img src="evidence/zenmap/05-mac-addresses.png" width="900">
 
 ---
 
-### Network Topology
+## 6️⃣ Network Topology Mapping
+
+### Objective
+
+Visualize the discovered hosts and network relationships using Zenmap's **Topology** view and preserve the result as supporting assessment evidence.
+
+### Procedure
+
+1. Open the **Topology** tab in Zenmap.
+2. Enable the topology legend.
+3. Review the displayed network relationships.
+4. Save the topology graphic.
+5. Select **PDF** as the output format.
+6. Store the exported topology with the assessment evidence.
+
+### Evidence
 
 <img src="evidence/zenmap/06-topology.png" width="900">
 
-📄 PDF Version:
+### Output
 
-`evidence/zenmap/network-topology.pdf`
+**Topology File:**
+
+```text
+evidence/zenmap/network-topology.pdf
+```
 
 ---
+
+# 📊 W2-PM5 Results Summary
+
+| Assessment Item | Result |
+|-----------------|---------|
+| Live Hosts Identified | **4** |
+| Network Discovery | Completed |
+| IP Addresses Recorded | **4** |
+| MAC Addresses Recorded | **4** |
+| Network Topology | Generated and Exported to PDF |
+| Scanning Tool | Zenmap / Nmap |
+| Assessment Scope | Authorized Local LAN |
+
+---
+
+### Key Takeaway
+
+The Zenmap assessment successfully identified the active hosts within the authorized LAN and documented their IP and MAC addresses. The resulting topology diagram provides a visual representation of the discovered network and has been preserved as supporting evidence.
+
+### Evidence
+
+Zenmap scan output, host information, screenshots, and the exported topology PDF are maintained under:
+
+```text
+evidence/zenmap/
+```
+
+---
+
+
 
 # 📋 Module 3 — Final Assessment Report (W2-PM-FINAL)
 
 ## Executive Summary
 
-This assessment combined passive and active reconnaissance methodologies to collect information about an authorized target and network environment.
+This assessment was conducted as part of the NetworkWalks Cybersecurity Internship (Batch B082) and focused on authorized reconnaissance and network discovery activities.
 
-Activities included:
+The objective was to gather publicly available information about the target environment, analyze DNS and web technologies, identify reachable hosts within the authorized network, and document findings using industry-standard reconnaissance and network-scanning methodologies.
+
+The assessment combined both passive and active information-gathering techniques through footprinting tools and Zenmap-based network discovery.
+
+---
+
+## Assessment Scope
+
+### Authorized Target
+
+```text
+networkwalks.com
+```
+
+### Assessment Activities
 
 - Domain Intelligence Gathering
 - DNS Enumeration
@@ -583,19 +715,198 @@ Activities included:
 - WAF Detection
 - HTTP Header Analysis
 - Host Discovery
-- Network Mapping
+- Network Enumeration
+- Network Topology Mapping
+- Evidence Collection
+- Security Documentation
 
-The collected evidence provides a baseline understanding of the target's exposed infrastructure.
+### Assessment Constraints
+
+The following activities were outside the scope of this assessment and were not performed:
+
+- Vulnerability Scanning
+- Exploitation
+- Brute Force Attacks
+- Privilege Escalation
+- Denial of Service Testing
+- Unauthorized Access Attempts
 
 ---
-# 📸 Evidence Gallery
 
-All screenshots used throughout the assessment are maintained under:
+## Assessment Methodology
+
+The assessment followed a structured three-phase approach:
+
+### Phase 1 — Reconnaissance
+
+Information gathering was conducted using:
+
+- WHOIS
+- NSLOOKUP
+- DNSRecon
+- WhatWeb
+- Wafw00f
+- cURL
+
+These tools were used to collect publicly available information regarding domain registration, DNS records, web technologies, security controls, and HTTP response characteristics.
+
+---
+
+### Phase 2 — Network Discovery
+
+Network scanning activities were conducted using Zenmap and Nmap.
+
+The assessment included:
+
+- Network configuration verification
+- Host discovery
+- Live host identification
+- IP address enumeration
+- MAC address collection
+- Network topology generation
+
+---
+
+### Phase 3 — Reporting & Documentation
+
+Assessment evidence was collected, organized, and documented throughout the engagement.
+
+The final report was prepared to provide:
+
+- Assessment objectives
+- Methodology
+- Findings
+- Supporting evidence
+- Summary observations
+
+---
+
+## Reconnaissance Findings Summary
+
+The footprinting phase successfully collected information related to:
+
+| Area | Description |
+|--------|-------------|
+| WHOIS | Domain registration information |
+| DNS Resolution | Domain-to-IP resolution |
+| DNS Enumeration | DNS record discovery |
+| Technology Fingerprinting | Web technologies in use |
+| WAF Detection | Presence of web application protection |
+| HTTP Analysis | Response headers and server information |
+
+The collected information provided insight into the target's publicly accessible infrastructure and technology stack.
+
+---
+
+## Network Discovery Findings Summary
+
+The Zenmap assessment successfully identified active hosts within the authorized assessment network.
+
+### Results
+
+| Assessment Item | Result |
+|-----------------|---------|
+| Live Hosts Identified | 4 |
+| IP Addresses Recorded | 4 |
+| MAC Addresses Recorded | 4 |
+| Network Topology Generated | Yes |
+| Topology Exported | PDF |
+
+### Network Information Collected
+
+| Host | IP Address |
+|--------|------------|
+| Host 1 | 10.0.0.1 |
+| Host 2 | 10.0.0.4 |
+| Host 3 | 10.0.0.19 |
+| Host 4 | 10.0.0.5 |
+
+The resulting topology diagram provided a visual representation of the discovered network environment.
+
+---
+
+## Cross-Phase Analysis
+
+The assessment combined both reconnaissance and network-discovery activities to provide multiple perspectives of the authorized environment.
+
+### External Perspective
+
+The footprinting phase provided visibility into:
+
+- Domain ownership information
+- DNS infrastructure
+- Web technologies
+- Security controls
+- HTTP response behavior
+
+### Internal Perspective
+
+The network-scanning phase provided visibility into:
+
+- Reachable hosts
+- Network addressing
+- MAC address information
+- Network topology
+
+Together, these activities established a baseline understanding of the assessed environment.
+
+---
+
+## Key Learning Outcomes
+
+Through this assessment, the following practical skills were developed:
+
+- Domain Footprinting
+- DNS Enumeration
+- Technology Fingerprinting
+- WAF Identification
+- HTTP Header Analysis
+- Host Discovery
+- Network Enumeration
+- Topology Mapping
+- Evidence Collection
+- Technical Documentation
+- Professional Reporting
+
+---
+
+## Evidence Management
+
+All evidence generated during the assessment has been organized and retained within the repository.
+
+### Evidence Directory
 
 ```text
-evidence/footprinting/
-evidence/zenmap/
+evidence/
+├── footprinting/
+├── zenmap/
+└── network-topology.pdf
 ```
+
+### Results Directory
+
+```text
+results/
+├── footprinting/
+└── zenmap/
+```
+
+The evidence includes screenshots, command outputs, topology exports, and supporting documentation.
+
+---
+
+## Assessment Conclusion
+
+The Week 02 assessment successfully achieved its objectives by combining authorized footprinting and network discovery activities.
+
+Reconnaissance techniques provided valuable information regarding domain registration, DNS infrastructure, web technologies, security controls, and HTTP response characteristics. Network scanning activities successfully identified active hosts, recorded network information, and generated a visual topology of the authorized environment.
+
+The assessment demonstrates the practical application of information-gathering and network-discovery methodologies while maintaining compliance with the authorized scope defined by NetworkWalks.
+
+The collected evidence and documented findings provide a structured baseline that can support future security assessments, network analysis activities, and cybersecurity learning objectives.
+
+---
+
 
 
 # ⚖️ Ethics Statement
