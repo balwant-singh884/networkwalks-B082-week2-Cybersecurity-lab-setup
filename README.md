@@ -1,23 +1,42 @@
 <div align="center">
 
-# 🔐 NetworkWalks Cybersecurity Internship
+# 🔐 NETWORKWALKS CYBERSECURITY INTERNSHIP
 
-## Week 02 — Footprinting & Reconnaissance
+## Week 02 – Footprinting & Network Scanning
 
-### W2-PM1: Information Gathering Using Multiple Kali Linux Tools
+### W2-PM1 • W2-PM5 • W2-PM-FINAL
 
-![Kali Linux](https://img.shields.io/badge/Kali-Linux-blue)
-![VMware](https://img.shields.io/badge/VMware-Workstation-orange)
-![Batch](https://img.shields.io/badge/Batch-B082-green)
-![Reconnaissance](https://img.shields.io/badge/Phase-Footprinting-success)
+![Kali Linux](https://img.shields.io/badge/Kali-Linux-blue?style=for-the-badge&logo=kalilinux)
+![VMware](https://img.shields.io/badge/VMware-Workstation-orange?style=for-the-badge&logo=vmware)
+![NetworkWalks](https://img.shields.io/badge/Batch-B082-success?style=for-the-badge)
+![Reconnaissance](https://img.shields.io/badge/Footprinting-Completed-brightgreen?style=for-the-badge)
+![Zenmap](https://img.shields.io/badge/Zenmap-Completed-blue?style=for-the-badge)
+![Report](https://img.shields.io/badge/Final_Report-Completed-purple?style=for-the-badge)
 
 <br>
 
-Building practical reconnaissance skills through ethical and authorized information gathering using Kali Linux.
+### Ethical Reconnaissance • Network Discovery • Security Documentation
 
 </div>
 
 ---
+
+# 📌 Project Overview
+
+This repository contains the work completed during **Week 02** of the **NetworkWalks Cybersecurity Internship (Batch B082)**.
+
+The assessment focused on two primary cybersecurity activities:
+
+- Passive & Active Footprinting
+- Network Discovery & Enumeration using Zenmap
+
+The objective was to collect publicly available information about an authorized target, analyze DNS and web technologies, identify reachable hosts within an authorized network, and document findings professionally.
+
+---
+
+# 📜 Authorization & Scope
+
+This assessment was conducted under the authorization provided by **NetworkWalks**.
 
 # 📌 Project Overview
 
@@ -71,6 +90,11 @@ Reconnaissance activities were performed only against authorized targets provide
 
 ✅ Wafw00f
 
+✅ Nmap / Zenmap Host Discovery
+
+✅ Network Topology Mapping
+
+
 
 
 ### Prohibited Activities
@@ -84,24 +108,6 @@ Reconnaissance activities were performed only against authorized targets provide
 ❌ Unauthorized Access Attempts
 
 ❌ Privilege Escalation
-
----
-
-# 📄 Authorization Evidence
-
-### Authorization Letter
-
-📸 **ADD AUTHORIZATION LETTER SCREENSHOT – PAGE 1**
-
-```text
-authorization/authorization-page1.png
-```
-
-📸 **ADD AUTHORIZATION LETTER SCREENSHOT – PAGE 2**
-
-```text
-authorization/authorization-page2.png
-```
 
 ---
 
@@ -130,6 +136,9 @@ authorization/authorization-page2.png
 | cURL | HTTP response header analysis |
 | WhatWeb | Website technology identification |
 | Wafw00f | Web Application Firewall detection |
+| Zenmap | Host Discovery |
+| Nmap | Network Enumeration |
+
 
 
 ---
@@ -142,19 +151,37 @@ networkwalks-B082-week2-footprinting-reconnaissance
 ├── README.md
 │
 ├── authorization
-│   ├── authorization-page1.png
-│   └── authorization-page2.png
+│   
+│   
 │
 ├── screenshots
-    ├── 01-whois.png
-    ├── 02-nslookup.png
-    ├── 03-curl.png
-    ├── 04-whatweb.png
-    ├── 05-wafw00f.png
+|   ├── 01-whois.png
+|   ├── 02-nslookup.png
+|   ├── 03-curl.png
+|   ├── 04-whatweb.png
+|   ├── 05-wafw00f.png
+└── zenmap
+│       ├── 01-ipconfig.png
+│       ├── 02-host-discovery.png
+│       ├── 03-live-hosts.png
+│       ├── 04-ip-addresses.png
+│       ├── 05-mac-addresses.png
+│       ├── 06-topology.png
+│       └── network-topology.pdf
+│
+├── results
+    │
+    ├── footprinting
+    └── zenmap
 
-```
 
 ---
+# 🔎 Module 1 — Footprinting & Reconnaissance (W2-PM1)
+
+## Objective
+
+Perform authorized reconnaissance against the target domain using multiple Kali Linux information-gathering tools.
+
 
 # 🔎 Reconnaissance Workflow
 
@@ -408,30 +435,88 @@ Through this exercise, I gained hands-on experience with:
 
 ---
 
-# 📸 Evidence Gallery
+# 🌐 Module 2 — Network Scanning with Zenmap (W2-PM5)
 
-### WHOIS
+## Objective
 
-📸 screenshots/01-whois.png
+Identify active hosts, enumerate network information, and visualize network topology using Zenmap.
 
-### NSLOOKUP
+### Network Configuration
 
-📸 screenshots/02-nslookup.png
+```cmd
+ipconfig
+```
 
-###  CURL
-
-📸 screenshots/03-curl.png
-
-### WHATWEB
-
-📸 screenshots/04-whatweb.png
-
-### WAFW00F
-
-📸 screenshots/05-wafw00f.png
-
+<img src="evidence/zenmap/01-ipconfig.png" width="900">
 
 ---
+
+### Host Discovery
+
+```bash
+nmap -sn <target-range>
+```
+
+<img src="evidence/zenmap/02-host-discovery.png" width="900">
+
+---
+
+### Live Hosts
+
+<img src="evidence/zenmap/03-live-hosts.png" width="900">
+
+---
+
+### IP Address Enumeration
+
+<img src="evidence/zenmap/04-ip-addresses.png" width="900">
+
+---
+
+### MAC Address Enumeration
+
+<img src="evidence/zenmap/05-mac-addresses.png" width="900">
+
+---
+
+### Network Topology
+
+<img src="evidence/zenmap/06-topology.png" width="900">
+
+📄 PDF Version:
+
+`evidence/zenmap/network-topology.pdf`
+
+---
+
+# 📋 Module 3 — Final Assessment Report (W2-PM-FINAL)
+
+## Executive Summary
+
+This assessment combined passive and active reconnaissance methodologies to collect information about an authorized target and network environment.
+
+Activities included:
+
+- Domain Intelligence Gathering
+- DNS Enumeration
+- Technology Fingerprinting
+- WAF Detection
+- HTTP Header Analysis
+- Host Discovery
+- Network Mapping
+
+The collected evidence provides a baseline understanding of the target's exposed infrastructure.
+
+---
+# 📸 Evidence Gallery
+
+All screenshots used throughout the assessment are maintained under:
+
+```text
+evidence/footprinting/
+evidence/zenmap/
+```
+
 
 # ⚖️ Ethics Statement
 
@@ -451,9 +536,7 @@ Cybersecurity Student
 
 NetworkWalks Cybersecurity Internship — Batch B082
 
-GitHub: [ADD GITHUB PROFILE]
-
-LinkedIn: [ADD LINKEDIN PROFILE]
+LinkedIn: inkedin.com/in/balwant-singh-a5a4a232b/
 
 ---
 
