@@ -38,7 +38,7 @@ The objective was to collect publicly available information about an authorized 
 
 This assessment was conducted under the authorization provided by **NetworkWalks**.
 
-# 📌 Project Overview
+# Task 1 Objectives :
 
 As part of **Week 02** of the **NetworkWalks Cybersecurity Internship (Batch B082)**, I performed authorized footprinting and reconnaissance activities against the approved target domain:
 
