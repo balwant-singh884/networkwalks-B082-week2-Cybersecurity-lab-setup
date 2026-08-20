@@ -516,7 +516,7 @@ Through this exercise, I gained hands-on experience with:
 ---
 
 
-# 🌐 Module 2 — Network Scanning with Zenmap (W2-PM5)
+# 🌐 Module 5 — Network Scanning with Zenmap (W2-PM5)
 
 ## Objective
 
@@ -535,10 +535,6 @@ Identify the local IP address and LAN subnet before performing network discovery
 ```cmd
 ipconfig
 ```
-
-### Evidence
-
-<img src="evidence/zenmap/01-ipconfig.png" width="900">
 
 ---
 
@@ -562,7 +558,8 @@ nmap -sn 10.0.0.0/24
 
 ### Evidence
 
-<img src="evidence/zenmap/02-host-discovery.png" width="900">
+<img width="1919" height="1005" alt="Screenshot 2026-08-20 091413" src="https://github.com/user-attachments/assets/b2b43df3-ab61-4bdd-89d5-2a8504e8fea3" />
+
 
 ---
 
@@ -578,7 +575,10 @@ The scan identified **4 live hosts**, including the assessment system.
 
 ### Evidence
 
-<img src="evidence/zenmap/03-live-hosts.png" width="900">
+<img width="1919" height="1005" alt="Screenshot 2026-08-20 091413" src="https://github.com/user-attachments/assets/e4d4c06b-677a-4a5c-9189-e804fa0824f6" /> <br>
+<img width="1919" height="996" alt="Screenshot 2026-08-20 091501" src="https://github.com/user-attachments/assets/af485db3-9429-4147-853d-f24acb2395f6" /> <br>
+<img width="1919" height="975" alt="Screenshot 2026-08-20 091528" src="https://github.com/user-attachments/assets/262a8a25-ed32-46a2-985c-e8a544a516e5" /> <br>
+<img width="1919" height="985" alt="Screenshot 2026-08-20 091556" src="https://github.com/user-attachments/assets/25b87d0f-a4b7-4fc8-b0a5-920ad929ba5a" /> <br>
 
 ---
 
@@ -594,15 +594,10 @@ The following hosts were identified as live:
 
 | Host | IP Address |
 |------|------------|
-| Host 1 | `10.0.0.1` |
-| Host 2 | `10.0.0.4` |
-| Host 3 | `10.0.0.19` |
-| Host 4 | `10.0.0.5` |
-
-### Evidence
-
-<img src="evidence/zenmap/04-ip-addresses.png" width="900">
-
+| Host 1 | `10.0.0.0/24` |
+| Host 2 | `10.0.0.0/25` |
+| Host 3 | `10.0.0.0/26` |
+| Host 4 | `10.0.0.0/27` |
 ---
 
 ## 5️⃣ Live Host MAC Addresses
@@ -615,16 +610,12 @@ Record the MAC addresses associated with the live hosts identified during the Ze
 
 | Host | MAC Address |
 |------|-------------|
-| Host 1 | `00:50:56:E3:B3:2C` |
-| Host 2 | `00:0C:29:C0:94:8F` |
-| Host 3 | `00:50:56:E9:64:82` |
-| Host 4 | `00:0C:29:40:C0:93` |
+| Host 1 | `00:50:56:C0:00:02` |
+| Host 2 | `00:50:56:C0:00:02` |
+| Host 3 | `00:50:56:C0:00:02` |
+| Host 4 | `00:50:56:C0:00:02` |
 
 The fourth MAC address represents the local assessment system and was obtained using the system's network configuration.
-
-### Evidence
-
-<img src="evidence/zenmap/05-mac-addresses.png" width="900">
 
 ---
 
@@ -645,7 +636,8 @@ Visualize the discovered hosts and network relationships using Zenmap's **Topolo
 
 ### Evidence
 
-<img src="evidence/zenmap/06-topology.png" width="900">
+<img width="1906" height="957" alt="Screenshot 2026-08-20 091650" src="https://github.com/user-attachments/assets/2c3accd0-22c7-4bea-b603-6b5677b3a9de" />
+
 
 ### Output
 
@@ -814,12 +806,12 @@ The Zenmap assessment successfully identified active hosts within the authorized
 
 ### Network Information Collected
 
-| Host | IP Address |
-|--------|------------|
-| Host 1 | 10.0.0.1 |
-| Host 2 | 10.0.0.4 |
-| Host 3 | 10.0.0.19 |
-| Host 4 | 10.0.0.5 |
+| Host   | IP Address |
+|--------|-------------|
+| Host 1 | 10.0.0.0/24 |
+| Host 2 | 10.0.0.0/25 |
+| Host 3 | 10.0.0.0/26 |
+| Host 4 | 10.0.0.0/27 |
 
 The resulting topology diagram provided a visual representation of the discovered network environment.
 
